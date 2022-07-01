@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectAllUsers } from "../users/usersSlice";
 import { addNewPost } from "./postsSlice";
 
@@ -8,6 +9,7 @@ const AddPostForm = () => {
 	const [post, setPost] = useState({ title: "", body: "", userId: "" });
 	const [addRequestStatus, setAddRequestStatus] = useState("idle");
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleChange = (e) => {
 		setPost((prevState) => ({
@@ -23,13 +25,15 @@ const AddPostForm = () => {
 			if (post.title !== "" && post.body !== "" && post.userId !== "" && addRequestStatus === "idle") {
 				setAddRequestStatus("pending");
 				dispatch(addNewPost({ ...post }));
+
+				setPost({ title: "", body: "", userId: "" });
+				navigate("/");
 			}
 		} catch (error) {
 			console.error("Failed to save the post", error);
 		} finally {
 			setAddRequestStatus("idle");
 		}
-		setPost({ title: "", body: "", userId: "" });
 	};
 
 	const usersOptions = users.map(({ id, name }) => (
