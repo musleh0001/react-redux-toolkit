@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllUsers } from "../users/usersSlice";
-import { postAdd } from "./postsSlice";
+import { addNewPost } from "./postsSlice";
 
 const AddPostForm = () => {
 	const users = useSelector(selectAllUsers);
-	const [post, setPost] = useState({ title: "", content: "", userId: "" });
+	const [post, setPost] = useState({ title: "", body: "", userId: "" });
+	const [addRequestStatus, setAddRequestStatus] = useState("idle");
 	const dispatch = useDispatch();
 
 	const handleChange = (e) => {
@@ -17,10 +18,18 @@ const AddPostForm = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (post.title !== "" && post.content !== "" && post.userId !== "") {
-			dispatch(postAdd({ ...post }));
+
+		try {
+			if (post.title !== "" && post.body !== "" && post.userId !== "" && addRequestStatus === "idle") {
+				setAddRequestStatus("pending");
+				dispatch(addNewPost({ ...post }));
+			}
+		} catch (error) {
+			console.error("Failed to save the post", error);
+		} finally {
+			setAddRequestStatus("idle");
 		}
-		setPost({ title: "", content: "", userId: "" });
+		setPost({ title: "", body: "", userId: "" });
 	};
 
 	const usersOptions = users.map(({ id, name }) => (
@@ -41,8 +50,8 @@ const AddPostForm = () => {
 					{usersOptions}
 				</select>
 				<label htmlFor="postContent">Content:</label>
-				<input type="text" value={post.content} onChange={handleChange} name="content" id="postContent" />
-				<button type="submit" disabled={!(Boolean(post.title) && Boolean(post.content) && Boolean(post.userId))}>
+				<input type="text" value={post.body} onChange={handleChange} name="body" id="postContent" />
+				<button type="submit" disabled={![post.title, post.body, post.userId].every(Boolean) && addRequestStatus === "idle"}>
 					Save Post
 				</button>
 			</form>

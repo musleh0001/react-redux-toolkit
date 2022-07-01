@@ -1,69 +1,97 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background: #333;
-  color: whitesmoke;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+	background: #333;
+	color: whitesmoke;
 }
 
 body {
-  min-height: 100vh;
-  font-size: 1.5rem;
-  padding: 0 10% 10%;
+	min-height: 100vh;
+	font-size: 1.5rem;
+	padding: 0 10% 10%;
 }
 
 input,
 textarea,
 button,
 select {
-  font: inherit;
-  margin-bottom: 1em;
+	font: inherit;
+	margin-bottom: 1em;
 }
 
 main {
-  max-width: 500px;
-  margin: auto;
+	max-width: 500px;
+	margin: auto;
 }
 
 section {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 
 article {
-  margin: 0.5em 0.5em 0.5em 0;
-  border: 1px solid whitesmoke;
-  border-radius: 10px;
-  padding: 1em;
+	margin: 0.5em 0.5em 0.5em 0;
+	border: 1px solid whitesmoke;
+	border-radius: 10px;
+	padding: 1em;
 }
 
 h1 {
-  font-size: 3.5rem;
+	font-size: 3.5rem;
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  font-size: 1.2rem;
-  margin: 0.5em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+	font-size: 1.2rem;
+	margin: 0.5em 0;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .postCredit {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 .reactionButton {
-  margin: 0 0.25em 0 0;
-  background: transparent;
-  border: none;
-  color: whitesmoke;
-  font-size: 1rem;
+	margin: 0 0.25em 0 0;
+	background: transparent;
+	border: none;
+	color: whitesmoke;
+	font-size: 1rem;
+}
+
+.post {
+	position: relative;
+}
+
+.spin::before {
+	animation: 1.5s linear infinite spinner;
+	animation-play-state: inherit;
+	border: solid 5px #cfd0d1;
+	border-bottom-color: #1c87c9;
+	border-radius: 50%;
+	content: "";
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	will-change: transform;
+}
+
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
