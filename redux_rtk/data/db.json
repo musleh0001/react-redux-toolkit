@@ -310,7 +310,14 @@
       "userId": 2,
       "id": 12,
       "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
+      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio",
+      "reactions": {
+        "thumbsUp": 2,
+        "wow": 0,
+        "heart": 1,
+        "rocket": 0,
+        "coffee": 1
+      }
     },
     {
       "userId": 2,
@@ -328,7 +335,14 @@
       "userId": 2,
       "id": 15,
       "title": "eveniet quod temporibus",
-      "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae"
+      "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae",
+      "reactions": {
+        "thumbsUp": 2,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 2
+      }
     },
     {
       "userId": 2,
@@ -400,7 +414,14 @@
       "userId": 3,
       "id": 27,
       "title": "quasi id et eos tenetur aut quo autem",
-      "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur"
+      "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur",
+      "reactions": {
+        "thumbsUp": 2,
+        "wow": 0,
+        "heart": 0,
+        "rocket": 0,
+        "coffee": 2
+      }
     },
     {
       "userId": 3,
